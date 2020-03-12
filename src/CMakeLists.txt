@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.5)
+
+SET(CMAKE_CXX_STANDARD 11)
+
+set(CMAKE_SKIP_BUILD_RPATH  TRUE)
+set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+set(CMAKE_INSTALL_RPATH ".")
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
+include_directories(
+    "${PROJECT_SOURCE_DIR}/include"
+)
+
+SET(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/bin")
+
+AUX_SOURCE_DIRECTORY(. SRC_FILE)
+ADD_EXECUTABLE(demo ${SRC_FILE})
+
+target_link_libraries(demo -lpthread)
+
+
