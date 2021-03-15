@@ -6,6 +6,9 @@
 #include <vector>
 #include <condition_variable>
 
+#ifndef __TEST_TASK_POOL__
+#define __TEST_TASK_POOL__
+
 class TaskPool{
 private:
     std::atomic_bool m_stop;
@@ -81,3 +84,5 @@ auto TaskPool::push(bool front, Task&& task, Args&&... args) -> std::future<decl
     }
     return pask_task->get_future();
 }
+
+#endif //__TEST_TASK_POOL__
